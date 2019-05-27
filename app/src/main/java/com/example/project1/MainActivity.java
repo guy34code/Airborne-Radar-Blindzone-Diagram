@@ -70,24 +70,25 @@ public class MainActivity extends AppCompatActivity
                         }
 
                         StringBuffer buffer = new StringBuffer();
-                        while(res.moveToNext())
-                        {
-                            buffer.append("ID :"+ res.getString(0)+"\n");
-                            buffer.append("Range Gate :"+ res.getString(1)+"\n");
-                            buffer.append("Doppler Filter :"+ res.getString(2)+"\n");
-                            buffer.append("Frequency :"+ res.getString(3)+"\n");
-                            buffer.append("Clear PRF :"+ res.getString(4)+"\n");
-                            buffer.append("Azimuth Antenna BeamWidth :"+ res.getString(5)+"\n");
-                            buffer.append("Elevation Antenna BeamWidth :"+ res.getString(6)+"\n");
-                            buffer.append("Minimum Range :"+ res.getString(7)+"\n");
-                            buffer.append("Maximum Range :"+ res.getString(8)+"\n");
-                            buffer.append("Target Minimum Velocity :"+ res.getString(9)+"\n");
-                            buffer.append("Target Maximum Velocity :"+ res.getString(10)+"\n");
-                            buffer.append("Pulse Width :"+ res.getString(11)+"\n\n");
+                        if(res.moveToFirst()) {
+                            do {
+                                buffer.append("ID :" + res.getString(0) + "\n");
+                                buffer.append("Range Gate :" + res.getString(1) + "\n");
+                                buffer.append("Doppler Filter :" + res.getString(2) + "\n");
+                                buffer.append("Frequency :" + res.getString(3) + "\n");
+                                buffer.append("Clear PRF :" + res.getString(4) + "\n");
+                                buffer.append("Azimuth Antenna BeamWidth :" + res.getString(5) + "\n");
+                                buffer.append("Elevation Antenna BeamWidth :" + res.getString(6) + "\n");
+                                buffer.append("Minimum Range :" + res.getString(7) + "\n");
+                                buffer.append("Maximum Range :" + res.getString(8) + "\n");
+                                buffer.append("Target Minimum Velocity :" + res.getString(9) + "\n");
+                                buffer.append("Target Maximum Velocity :" + res.getString(10) + "\n");
+                                buffer.append("Pulse Width :" + res.getString(11) + "\n\n");
 
 
+                            } while (res.moveToNext());
+                            showMessage("DATA", buffer.toString());
                         }
-                        showMessage("DATA", buffer.toString());
                     }
                 }
         );
