@@ -5,6 +5,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.nfc.Tag;
+import android.util.Log;
+
+import static android.content.ContentValues.TAG;
 
 public class Databasehelper extends SQLiteOpenHelper {
 
@@ -23,13 +27,14 @@ public class Databasehelper extends SQLiteOpenHelper {
     public static final String COL_11 = "Target_Maximum_Velocity";
     public static final String COL_12 = "Pulse_Width";
 
-    public Databasehelper(Context context) {
+    public Databasehelper(Context context)
+    {
         super(context, DATABASE_NAME, null, 1);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, No_of_Range_Gate INTEGER, No_of_Doppler_Filter INTEGER, Frequency INTEGER, No_of_Clear_PRF INTEGER, Antenna_BeamWidthAzimuth INTEGER, Antenna_BeamWidthElevation INTEGER, Minimum_Range INTEGER, Maximum_Range INTEGER, Target_Minimum_Velocity INTEGER, Target_Maximum_Velocity INTEGER, Pulse_Width INTEGER)");
+        db.execSQL("create table " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, No_of_Range_Gate INTEGER, No_of_Doppler_Filter INTEGER, Frequency INTEGER, No_of_Clear_PRF INTEGER, Antenna_BeamWidth-Azimuth INTEGER, Antenna_BeamWidth-Elevation INTEGER, Minimum_Range INTEGER, Maximum_Range INTEGER, Target_Minimum_Velocity INTEGER, Target_Maximum_Velocity INTEGER, Pulse_Width INTEGER)");
 
     }
 
@@ -54,6 +59,7 @@ public class Databasehelper extends SQLiteOpenHelper {
         contentValues.put(COL_10,Target_Minimum_Velocity);
         contentValues.put(COL_11,Target_Maximum_Velocity);
         contentValues.put(COL_12,Pulse_Width);
+        Log.d(TAG, "Add Data : Adding " + Frequency + " to " + TABLE_NAME);
         long result = db.insert(TABLE_NAME, null, contentValues);
         if(result == -1)
             return false;
@@ -64,7 +70,7 @@ public class Databasehelper extends SQLiteOpenHelper {
     public Cursor getAllData()
     {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from "+TABLE_NAME, null);
+        Cursor res = db.rawQuery("SELECT * FROM "+TABLE_NAME, null);
         return res;
     }
 }
