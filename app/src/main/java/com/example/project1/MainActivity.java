@@ -6,8 +6,11 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnadd;
     Button btnview;
     Button btnnxt;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +41,7 @@ public class MainActivity extends AppCompatActivity {
         btnadd = (Button) findViewById(R.id.button1);
         btnview = (Button) findViewById(R.id.button2);
         btnnxt = (Button) findViewById(R.id.button3);
-        btnnxt.setOnClickListener(new View.OnClickListener()
-        {
+        btnnxt.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 openActivity2();
             }
@@ -49,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openActivity2() {
-        Intent i = new Intent(this,DynamicVariables.class);
-                startActivity(i);
+        Intent i = new Intent(this, DynamicVariables.class);
+        startActivity(i);
     }
 
     public void AddData() {
@@ -112,5 +115,4 @@ public class MainActivity extends AppCompatActivity {
         builder.setMessage(Message);
         builder.show();
     }
-
 }
