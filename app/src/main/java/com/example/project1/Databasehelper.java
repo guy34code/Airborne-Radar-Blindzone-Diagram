@@ -27,8 +27,7 @@ public class Databasehelper extends SQLiteOpenHelper {
     public static final String COL_11 = "Target_Maximum_Velocity";
     public static final String COL_12 = "Pulse_Width";
 
-    public Databasehelper(Context context)
-    {
+    public Databasehelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
     }
 
@@ -40,37 +39,35 @@ public class Databasehelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("Drop Table If Exists "+TABLE_NAME);
+        db.execSQL("Drop Table If Exists " + TABLE_NAME);
         onCreate(db);
     }
 
-    public boolean insertData(String No_of_Range_Gate, String No_of_Doppler_Filter, String Frequency, String No_of_Clear_PRF, String Antenna_BeamWidthAzimuth, String Antenna_BeamWidthElevation, String Minimum_Range, String Maximum_Range, String Target_Minimum_Velocity, String Target_Maximum_Velocity, String Pulse_Width)
-    {
+    public boolean insertData(String No_of_Range_Gate, String No_of_Doppler_Filter, String Frequency, String No_of_Clear_PRF, String Antenna_BeamWidthAzimuth, String Antenna_BeamWidthElevation, String Minimum_Range, String Maximum_Range, String Target_Minimum_Velocity, String Target_Maximum_Velocity, String Pulse_Width) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_2,No_of_Range_Gate);
-        contentValues.put(COL_3,No_of_Doppler_Filter);
-        contentValues.put(COL_4,Frequency);
-        contentValues.put(COL_5,No_of_Clear_PRF);
-        contentValues.put(COL_6,Antenna_BeamWidthAzimuth);
-        contentValues.put(COL_7,Antenna_BeamWidthElevation);
-        contentValues.put(COL_8,Minimum_Range);
-        contentValues.put(COL_9,Maximum_Range);
-        contentValues.put(COL_10,Target_Minimum_Velocity);
-        contentValues.put(COL_11,Target_Maximum_Velocity);
-        contentValues.put(COL_12,Pulse_Width);
+        contentValues.put(COL_2, No_of_Range_Gate);
+        contentValues.put(COL_3, No_of_Doppler_Filter);
+        contentValues.put(COL_4, Frequency);
+        contentValues.put(COL_5, No_of_Clear_PRF);
+        contentValues.put(COL_6, Antenna_BeamWidthAzimuth);
+        contentValues.put(COL_7, Antenna_BeamWidthElevation);
+        contentValues.put(COL_8, Minimum_Range);
+        contentValues.put(COL_9, Maximum_Range);
+        contentValues.put(COL_10, Target_Minimum_Velocity);
+        contentValues.put(COL_11, Target_Maximum_Velocity);
+        contentValues.put(COL_12, Pulse_Width);
         Log.d(TAG, "Add Data : Adding " + Frequency + " to " + TABLE_NAME);
         long result = db.insert(TABLE_NAME, null, contentValues);
-        if(result == -1)
+        if (result == -1)
             return false;
         else
             return true;
     }
 
-    public Cursor getAllData()
-    {
+    public Cursor getAllData() {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("SELECT * FROM "+TABLE_NAME, null);
+        Cursor res = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
         return res;
     }
 }
