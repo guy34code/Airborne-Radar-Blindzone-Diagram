@@ -19,8 +19,8 @@ public class Databasehelper extends SQLiteOpenHelper {
     public static final String COL_3 = "No_of_Doppler_Filter";
     public static final String COL_4 = "Frequency";
     public static final String COL_5 = "No_of_Clear_PRF";
-    public static final String COL_6 = "Antenna_BeamWidth-Azimuth";
-    public static final String COL_7 = "Antenna_BeamWidth-Elevation";
+    public static final String COL_6 = "Antenna_BeamWidthAzimuth";
+    public static final String COL_7 = "Antenna_BeamWidthElevation";
     public static final String COL_8 = "Minimum_Range";
     public static final String COL_9 = "Maximum_Range";
     public static final String COL_10 = "Target_Minimum_Velocity";
@@ -33,7 +33,7 @@ public class Databasehelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, No_of_Range_Gate INTEGER, No_of_Doppler_Filter INTEGER, Frequency INTEGER, No_of_Clear_PRF INTEGER, Antenna_BeamWidth-Azimuth INTEGER, Antenna_BeamWidth-Elevation INTEGER, Minimum_Range INTEGER, Maximum_Range INTEGER, Target_Minimum_Velocity INTEGER, Target_Maximum_Velocity INTEGER, Pulse_Width INTEGER)");
+        db.execSQL("create table " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, No_of_Range_Gate INTEGER, No_of_Doppler_Filter INTEGER, Frequency INTEGER, No_of_Clear_PRF INTEGER, Antenna_BeamWidthAzimuth INTEGER, Antenna_BeamWidthElevation INTEGER, Minimum_Range INTEGER, Maximum_Range INTEGER, Target_Minimum_Velocity INTEGER, Target_Maximum_Velocity INTEGER, Pulse_Width INTEGER)");
 
     }
 

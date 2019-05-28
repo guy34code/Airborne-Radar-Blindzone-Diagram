@@ -127,5 +127,6 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/layout3"
         android:layout_margin="20dp"
+        android:hapticFeedbackEnabled="true"
         android:text="Plot" />
 </RelativeLayout>
