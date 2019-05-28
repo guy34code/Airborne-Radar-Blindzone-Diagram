@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">Project1</string>
+    <string name="app_name">Graph Visualization</string>
+    <string-array name="Radars">
+        <item> Radar 1</item>
+        <item> Radar 2</item>
+        <item> Radar 3</item>
+        <item> Radar 4</item>
+        <item> Radar 5</item>
+    </string-array>
 </resources>
