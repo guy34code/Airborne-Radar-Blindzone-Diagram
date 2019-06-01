@@ -15,12 +15,13 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
     Databasehelper mydb;
     EditText ed1, ed2, ed3, ed4, ed5, ed6, ed7, ed8, ed9, ed10, ed11, ed12;
     Button btnadd;
     Button btnview;
     Button btnnxt;
-    boolean doubleBackToExitPressedOnce = false;
+    Button btncancel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,13 +43,17 @@ public class MainActivity extends AppCompatActivity {
         btnadd = (Button) findViewById(R.id.button1);
         btnview = (Button) findViewById(R.id.button2);
         btnnxt = (Button) findViewById(R.id.button3);
+        btncancel = (Button) findViewById(R.id.cancel);
         btnnxt.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 openActivity2();
             }
         });
+        btncancel.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) { finish();
+            }
+        });
         AddData();
-        ViewData();
 
     }
 
@@ -63,8 +68,10 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         boolean isInserted = mydb.insertData(ed1.getText().toString(), ed2.getText().toString(), ed3.getText().toString(), ed4.getText().toString(), ed10.getText().toString(), ed11.getText().toString(), ed6.getText().toString(), ed7.getText().toString(), ed8.getText().toString(), ed9.getText().toString(), ed12.getText().toString());
-                        if (isInserted = true)
+                        if (isInserted = true) {
                             Toast.makeText(MainActivity.this, "Data Inserted", Toast.LENGTH_LONG).show();
+                            finish();
+                        }
                         else
                             Toast.makeText(MainActivity.this, "Data Not Inserted", Toast.LENGTH_LONG).show();
                     }
@@ -72,67 +79,50 @@ public class MainActivity extends AppCompatActivity {
         );
     }
 
-    public void ViewData() {
-        btnview.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Cursor res = mydb.getAllData();
-                        if (res.getCount() == 0) {
-                            //show message
-                            showMessage("ERROR", "NO DATA FOUND");
-                            return;
-                        }
-
-                        StringBuffer buffer = new StringBuffer();
-                        if (res.moveToFirst()) {
-                            do {
-                                buffer.append("ID :" + res.getString(0) + "\n");
-                                buffer.append("Range Gate :" + res.getString(1) + "\n");
-                                buffer.append("Doppler Filter :" + res.getString(2) + "\n");
-                                buffer.append("Frequency :" + res.getString(3) + "\n");
-                                buffer.append("Clear PRF :" + res.getString(4) + "\n");
-                                buffer.append("Azimuth Antenna BeamWidth :" + res.getString(5) + "\n");
-                                buffer.append("Elevation Antenna BeamWidth :" + res.getString(6) + "\n");
-                                buffer.append("Minimum Range :" + res.getString(7) + "\n");
-                                buffer.append("Maximum Range :" + res.getString(8) + "\n");
-                                buffer.append("Target Minimum Velocity :" + res.getString(9) + "\n");
-                                buffer.append("Target Maximum Velocity :" + res.getString(10) + "\n");
-                                buffer.append("Pulse Width :" + res.getString(11) + "\n\n");
-
-
-                            } while (res.moveToNext());
-                            showMessage("DATA", buffer.toString());
-                        }
-                    }
-                }
-        );
+    public void ViewData( View view) {
+        startActivity(new Intent(this, DisplayRadar.class));
+//        btnview.setOnClickListener(
+//                new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        Cursor res = mydb.getAllData();
+//                        if (res.getCount() == 0) {
+//                            //show message
+//                            showMessage("ERROR", "NO DATA FOUND");
+//                            return;
+//                        }
+//
+//                        StringBuffer buffer = new StringBuffer();
+//                        if (res.moveToFirst()) {
+//                            do {
+//                                buffer.append("ID :" + res.getString(0) + "\n");
+//                                buffer.append("Range Gate :" + res.getString(1) + "\n");
+//                                buffer.append("Doppler Filter :" + res.getString(2) + "\n");
+//                                buffer.append("Frequency :" + res.getString(3) + "\n");
+//                                buffer.append("Clear PRF :" + res.getString(4) + "\n");
+//                                buffer.append("Azimuth Antenna BeamWidth :" + res.getString(5) + "\n");
+//                                buffer.append("Elevation Antenna BeamWidth :" + res.getString(6) + "\n");
+//                                buffer.append("Minimum Range :" + res.getString(7) + "\n");
+//                                buffer.append("Maximum Range :" + res.getString(8) + "\n");
+//                                buffer.append("Target Minimum Velocity :" + res.getString(9) + "\n");
+//                                buffer.append("Target Maximum Velocity :" + res.getString(10) + "\n");
+//                                buffer.append("Pulse Width :" + res.getString(11) + "\n\n");
+//
+//
+//                            } while (res.moveToNext());
+//                            showMessage("DATA", buffer.toString());
+//                        }
+//                    }
+//                }
+//        );
     }
 
-    public void showMessage(String Title, String Message) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setCancelable(true);
-        builder.setTitle(Title);
-        builder.setMessage(Message);
-        builder.show();
-    }
+//    public void showMessage(String Title, String Message) {
+//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//        builder.setCancelable(true);
+//        builder.setTitle(Title);
+//        builder.setMessage(Message);
+//        builder.show();
+//    }
 
-    @Override
-    public void onBackPressed() {
-        if (doubleBackToExitPressedOnce) {
-            super.onBackPressed();
-            return;
-        }
-
-        this.doubleBackToExitPressedOnce = true;
-        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
-
-        new Handler().postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-                doubleBackToExitPressedOnce=false;
-            }
-        }, 2000);
-    }
 }
