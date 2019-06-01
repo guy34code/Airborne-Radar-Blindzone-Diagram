@@ -15,16 +15,16 @@
             android:layout_height="fill_parent">
 
             <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_margin="20dp"
-            android:padding="16dp"
-            android:text="Radar Visualization"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="#4689C8"
-            android:textStyle="bold" />
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="Radar Visualization"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="#4689C8"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:id="@+id/layout1"
@@ -37,24 +37,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="12dp">
+                    android:padding="12dp"
+                    android:weightSum="100">
 
                     <TextView
                         android:id="@+id/textView1"
                         android:layout_width="60dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Range Gate"
+                        android:layout_weight="50"
                         android:gravity="center"
+                        android:text="Range Gate"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="#000000"/>
+                        android:textColor="#000000" />
 
                     <EditText
                         android:id="@+id/editText1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
+                        android:layout_weight="50"
                         android:hint="No. of Range Gate"
                         android:inputType="numberSigned" />
 
@@ -64,24 +64,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="12dp">
+                    android:padding="12dp"
+                    android:weightSum="100">
 
                     <TextView
                         android:id="@+id/textView2"
                         android:layout_width="60dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Doppler Filter"
+                        android:layout_weight="50"
                         android:gravity="center"
+                        android:text="Doppler Filter"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="#000000"/>
+                        android:textColor="#000000" />
 
                     <EditText
                         android:id="@+id/editText2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
+                        android:layout_weight="50"
                         android:hint="No. of Doppler Filter"
                         android:inputType="numberSigned" />
 
@@ -91,25 +91,26 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="12dp">
+                    android:padding="12dp"
+                    android:weightSum="100">
 
                     <TextView
                         android:id="@+id/textView3"
                         android:layout_width="60dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Frequency"
+                        android:layout_weight="50"
                         android:gravity="center"
+                        android:text="Frequency"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="#000000"/>
+                        android:textColor="#000000" />
 
                     <EditText
                         android:id="@+id/editText3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:inputType="numberSigned" />
+                        android:layout_weight="50"
+                        android:inputType="numberSigned"
+                        android:hint="Frequency"/>
 
                 </LinearLayout>
 
@@ -117,24 +118,25 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="12dp">
+                    android:padding="12dp"
+                    android:weightSum="100">
 
                     <TextView
                         android:id="@+id/textView4"
-                        android:layout_width="60dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Clear PRF"
+                        android:layout_weight="50"
                         android:gravity="center"
+                        android:text="Clear PRF"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="#000000"/>
+                        android:textColor="#000000" />
 
                     <EditText
                         android:id="@+id/editText4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
+                        android:layout_weight="50"
+
                         android:hint="No. of Clear PRF"
                         android:inputType="numberSigned" />
 
@@ -151,17 +153,17 @@
                         android:layout_width="60dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="No. of PRF"
                         android:gravity="center"
+                        android:text="No. of PRF"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="#000000"/>
+                        android:textColor="#000000" />
 
                     <EditText
                         android:id="@+id/editText5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:ems="10"
+
                         android:inputType="numberSigned" />
 
                 </LinearLayout>
@@ -177,17 +179,17 @@
                         android:layout_width="193dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Range"
                         android:gravity="center"
+                        android:text="Range"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="#000000"/>
+                        android:textColor="#000000" />
 
                     <EditText
                         android:id="@+id/editText6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:ems="10"
+
                         android:hint="Minimum"
                         android:inputType="numberSigned" />
 
@@ -196,7 +198,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:ems="10"
+
                         android:hint="Maximum"
                         android:inputType="numberSigned" />
 
@@ -223,7 +225,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:ems="10"
+
                         android:hint="Minimum"
                         android:inputType="numberSigned" />
 
@@ -232,7 +234,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:ems="10"
+
                         android:hint="Maximum"
                         android:inputType="numberSigned" />
 
@@ -242,13 +244,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="12dp">
+                    android:padding="12dp"
+                    android:weightSum="100">
 
                     <TextView
                         android:id="@+id/textView8"
-                        android:layout_width="193dp"
-                        android:layout_height="56dp"
-                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="33"
                         android:gravity="center"
                         android:text="Antenna BeamWidth"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -258,8 +261,7 @@
                         android:id="@+id/editText10"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
+                        android:layout_weight="33"
                         android:hint="Azimuth"
                         android:inputType="numberSigned" />
 
@@ -267,8 +269,7 @@
                         android:id="@+id/editText11"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
+                        android:layout_weight="33"
                         android:hint="Elevation"
                         android:inputType="numberSigned" />
 
@@ -285,17 +286,16 @@
                         android:layout_width="60dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Pulse Width"
                         android:gravity="center"
+                        android:text="Pulse Width"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="#000000"/>
+                        android:textColor="#000000" />
 
                     <EditText
                         android:id="@+id/editText12"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:ems="10"
                         android:inputType="numberSigned" />
 
                 </LinearLayout>
@@ -308,19 +308,37 @@
                 android:layout_below="@+id/layout1"
                 android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/button1"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hapticFeedbackEnabled="true"
-                    android:padding="8dp"
-                    android:text="Add Entry" />
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/cancel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="8dp"
+                        android:text="Cancel" />
+
+                    <Button
+                        android:id="@+id/button1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hapticFeedbackEnabled="true"
+                        android:padding="8dp"
+                        android:text="Add Entry" />
+
+
+                </LinearLayout>
 
                 <Button
                     android:id="@+id/button2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hapticFeedbackEnabled="true"
+                    android:onClick="ViewData"
                     android:padding="8dp"
                     android:text="View Entry" />
 
