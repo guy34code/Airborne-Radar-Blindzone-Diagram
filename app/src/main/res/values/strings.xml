@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Graph Visualization</string>
+    <string name="app_name">BlindZone Diagram</string>
     <string-array name="Radars">
         <item> Radar 1</item>
         <item> Radar 2</item>
