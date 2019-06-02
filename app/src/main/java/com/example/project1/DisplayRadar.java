@@ -35,7 +35,7 @@ public class DisplayRadar extends AppCompatActivity {
         }
         else {
             while (data.moveToNext()) {
-                radar_inputs = new Radar_Inputs(data.getString(0), data.getString(1), data.getString(2), data.getString(3), data.getString(4), data.getString(5), data.getString(6), data.getString(7), data.getString(8), data.getString(9), data.getString(10));
+                radar_inputs = new Radar_Inputs(data.getString(0), data.getString(1), data.getString(2), data.getString(3), data.getString(4), data.getString(5), data.getString(6), data.getString(7), data.getString(8), data.getString(9), data.getString(10), data.getString(11), data.getString(12));
                 userList.add(radar_inputs);
             }
             RadarLayoutAdapter radarLayoutAdapter = new RadarLayoutAdapter(this, R.layout.radar_row, userList);
@@ -93,12 +93,5 @@ public class DisplayRadar extends AppCompatActivity {
 //                listView.setAdapter(listAdapter);
 //            }
 //        }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        getMenuInflater().inflate(R.menu.threedots, menu);
-        return true;
     }
 }

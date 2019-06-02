@@ -1,8 +1,11 @@
 package com.example.project1;
 
-public class Radar_Inputs
+import java.io.Serializable;
+
+public class Radar_Inputs implements Serializable
 {
     private String Id;
+    private String Name;
     private String No_of_Range_Gate;
     private String No_of_Doppler_Filter;
     private String Frequency;
@@ -15,7 +18,8 @@ public class Radar_Inputs
     private String Target_Maximum_Velocity;
     private String Pulse_Width;
 
-    public Radar_Inputs(String no_of_Range_Gate, String no_of_Doppler_Filter, String frequency, String no_of_Clear_PRF, String antenna_BeamWidthAzimuth, String antenna_BeamWidthElevation, String minimum_Range, String maximum_Range, String target_Minimum_Velocity, String target_Maximum_Velocity, String pulse_Width) {
+    public Radar_Inputs(String Name, String no_of_Range_Gate, String no_of_Doppler_Filter, String frequency, String no_of_Clear_PRF, String antenna_BeamWidthAzimuth, String antenna_BeamWidthElevation, String minimum_Range, String maximum_Range, String target_Minimum_Velocity, String target_Maximum_Velocity, String pulse_Width) {
+        Name = Name;
         No_of_Range_Gate = no_of_Range_Gate;
         No_of_Doppler_Filter = no_of_Doppler_Filter;
         Frequency = frequency;
@@ -29,8 +33,9 @@ public class Radar_Inputs
         Pulse_Width = pulse_Width;
     }
 
-    public Radar_Inputs(String id, String no_of_Range_Gate, String no_of_Doppler_Filter, String frequency, String no_of_Clear_PRF, String antenna_BeamWidthAzimuth, String antenna_BeamWidthElevation, String minimum_Range, String maximum_Range, String target_Minimum_Velocity, String target_Maximum_Velocity, String pulse_Width) {
+    public Radar_Inputs(String id, String name, String no_of_Range_Gate, String no_of_Doppler_Filter, String frequency, String no_of_Clear_PRF, String antenna_BeamWidthAzimuth, String antenna_BeamWidthElevation, String minimum_Range, String maximum_Range, String target_Minimum_Velocity, String target_Maximum_Velocity, String pulse_Width) {
         Id = id;
+        Name = name;
         No_of_Range_Gate = no_of_Range_Gate;
         No_of_Doppler_Filter = no_of_Doppler_Filter;
         Frequency = frequency;
@@ -43,7 +48,6 @@ public class Radar_Inputs
         Target_Maximum_Velocity = target_Maximum_Velocity;
         Pulse_Width = pulse_Width;
     }
-
 
     public String getId() {
         return Id;
@@ -53,6 +57,13 @@ public class Radar_Inputs
         Id = id;
     }
 
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
 
     public String getNo_of_Range_Gate() {
         return No_of_Range_Gate;
@@ -142,9 +153,9 @@ public class Radar_Inputs
         Pulse_Width = pulse_Width;
     }
 
-//    @Override
-//    public String toString()
-//    {
-//        return name;
-//    }
+    @Override
+    public String toString()
+    {
+        return Name;
+    }
 }

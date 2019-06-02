@@ -70,17 +70,29 @@ public class RadarLayoutAdapter extends ArrayAdapter<Radar_Inputs>
 //           layoutHandler.tt10=(TextView)row.findViewById(R.id.t11);
 //           layoutHandler.tt11=(TextView)row.findViewById(R.id.t12);
 //           row.setTag(layoutHandler);
+           TextView tt0 = (TextView) convertView.findViewById(R.id.t0);
+           TextView tt01 = (TextView) convertView.findViewById(R.id.t6);
            TextView tt1 = (TextView) convertView.findViewById(R.id.t2);
            TextView tt2 = (TextView) convertView.findViewById(R.id.t3);
            TextView tt3 = (TextView) convertView.findViewById(R.id.t4);
            TextView tt4 = (TextView) convertView.findViewById(R.id.t5);
-           TextView tt5 = (TextView) convertView.findViewById(R.id.t6);
-           TextView tt6 = (TextView) convertView.findViewById(R.id.t7);
-           TextView tt7 = (TextView) convertView.findViewById(R.id.t8);
-           TextView tt8 = (TextView) convertView.findViewById(R.id.t9);
-           TextView tt9 = (TextView) convertView.findViewById(R.id.t10);
-           TextView tt10 = (TextView) convertView.findViewById(R.id.t11);
-           TextView tt11 = (TextView) convertView.findViewById(R.id.t12);
+           TextView tt5 = (TextView) convertView.findViewById(R.id.t7);
+           TextView tt6 = (TextView) convertView.findViewById(R.id.t8);
+           TextView tt7 = (TextView) convertView.findViewById(R.id.t9);
+           TextView tt8 = (TextView) convertView.findViewById(R.id.t10);
+           TextView tt9 = (TextView) convertView.findViewById(R.id.t11);
+           TextView tt10 = (TextView) convertView.findViewById(R.id.t12);
+           TextView tt11 = (TextView) convertView.findViewById(R.id.t13);
+
+           if (tt0 != null)
+           {
+               tt0.setText(radar_inputs.getId());
+           }
+
+           if (tt01 != null)
+           {
+               tt01.setText(radar_inputs.getName());
+           }
 
            if (tt1 != null)
            {

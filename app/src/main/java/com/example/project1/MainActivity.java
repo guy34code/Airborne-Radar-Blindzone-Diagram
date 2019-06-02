@@ -42,13 +42,13 @@ public class MainActivity extends AppCompatActivity {
         ed12 = (EditText) findViewById(R.id.editText12);
         btnadd = (Button) findViewById(R.id.button1);
         btnview = (Button) findViewById(R.id.button2);
-        btnnxt = (Button) findViewById(R.id.button3);
+//        btnnxt = (Button) findViewById(R.id.button3);
         btncancel = (Button) findViewById(R.id.cancel);
-        btnnxt.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                openActivity2();
-            }
-        });
+//        btnnxt.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                openActivity2();
+//            }
+//        });
         btncancel.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) { finish();
             }
@@ -57,17 +57,17 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void openActivity2() {
-        Intent i = new Intent(this, DynamicVariables.class);
-        startActivity(i);
-    }
+//    public void openActivity2() {
+//        Intent i = new Intent(this, DynamicVariables.class);
+//        startActivity(i);
+//    }
 
     public void AddData() {
         btnadd.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        boolean isInserted = mydb.insertData(ed1.getText().toString(), ed2.getText().toString(), ed3.getText().toString(), ed4.getText().toString(), ed10.getText().toString(), ed11.getText().toString(), ed6.getText().toString(), ed7.getText().toString(), ed8.getText().toString(), ed9.getText().toString(), ed12.getText().toString());
+                        boolean isInserted = mydb.insertData(ed5.getText().toString(), ed1.getText().toString(), ed2.getText().toString(), ed3.getText().toString(), ed4.getText().toString(), ed10.getText().toString(), ed11.getText().toString(), ed6.getText().toString(), ed7.getText().toString(), ed8.getText().toString(), ed9.getText().toString(), ed12.getText().toString());
                         if (isInserted = true) {
                             Toast.makeText(MainActivity.this, "Data Inserted", Toast.LENGTH_LONG).show();
                             finish();

@@ -6,6 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -31,10 +32,18 @@ public class Firstscreen extends AppCompatActivity {
         lvradars = findViewById(R.id.list_firstscreen);
         dbhelper = new Databasehelper(this);
 
-//        //list = dbhelper.getData();
-//        arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, list);
-//        lvradars.setAdapter(arrayAdapter);
 
+
+        lvradars.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Radar_Inputs radar_inputs = list.get(position);
+
+                Intent intent = new Intent(Firstscreen.this, DisplyIndividualRadar.class);
+                intent.putExtra("RADAR", radar_inputs);
+                startActivity(intent);
+            }
+        });
         add.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 openMain();
@@ -64,5 +73,14 @@ public class Firstscreen extends AppCompatActivity {
                 doubleBackToExitPressedOnce=false;
             }
         }, 2000);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        list = dbhelper.getnameData();
+        arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, list);
+        lvradars.setAdapter(arrayAdapter);
+
     }
 }
