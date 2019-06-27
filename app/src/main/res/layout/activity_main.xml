@@ -1,28 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="2dp"
     app:cardCornerRadius="4dp"
     app:cardUseCompatPadding="true"
     app:contentPadding="4dp">
 
+
     <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:scrollbars="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_margin="4dp">
+            android:layout_margin="4dp"
+            android:weightSum="1">
 
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="horizontal">
 
                 <TextView
@@ -51,7 +53,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:text="Range Gate"
+                    android:text="No. of Range Gate"
                     android:textColor="#000000"
                     android:layout_weight="1"/>
 
@@ -74,7 +76,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:text="Doppler Filter"
+                    android:text="No. of Doppler Filter"
                     android:textColor="#000000"
                     android:layout_weight="1"/>
 
@@ -83,7 +85,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/editText2"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:hint="Doppler Filter"
+                    android:hint="No. of Doppler Filter"
                     android:layout_weight="2"
                     android:inputType="numberSigned"/>
             </LinearLayout>
@@ -134,11 +136,35 @@
                     android:inputType="numberSigned"/>
             </LinearLayout>
 
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:text="No. of PRF"
+                    android:textColor="#000000"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:text="ADD"
+                    android:id="@+id/addprfbutton"
+                    android:textColor="#000000"
+                    android:layout_weight="2"
+                    android:onClick="openpopup"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/rangelayout">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -194,7 +220,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:text="Target Minimum Velocity"
+                    android:text="Target Min Velocity"
                     android:textColor="#000000"
                     android:layout_weight="1"/>
 
@@ -219,7 +245,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:text="Target Maximum Velocity"
+                    android:text="Target Max Velocity"
                     android:textColor="#000000"
                     android:layout_weight="1"/>
 
@@ -235,12 +261,12 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:text="Antenna BeamWidth- Azimuth"
                     android:textColor="#000000"
@@ -260,12 +286,12 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="Antenna BeamWidth-Elevation"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -348,5 +374,4 @@
 
         </LinearLayout>
     </ScrollView>
-
 </android.support.v7.widget.CardView>

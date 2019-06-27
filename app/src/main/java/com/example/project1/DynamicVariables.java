@@ -9,8 +9,11 @@ import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import java.io.Serializable;
 
 public class DynamicVariables extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -18,11 +21,14 @@ public class DynamicVariables extends AppCompatActivity implements AdapterView.O
     Radar_Inputs radar_inputs;
     Databasehelper databasehelper;
     ArrayAdapter<String> spin_name;
+    EditText ed1,ed2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dynamic_variables);
+
+        getSupportActionBar().setTitle("Define Dynamic Parameters");
 
         databasehelper = new Databasehelper(this);
         radar_inputs = (Radar_Inputs) getIntent().getExtras().getSerializable("RADAR");
@@ -43,10 +49,16 @@ public class DynamicVariables extends AppCompatActivity implements AdapterView.O
 //        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 //        spin.setAdapter(adapter);
         spin.setOnItemSelectedListener(this);
+
+        ed1=(EditText)findViewById(R.id.editText1);
+        ed1=(EditText)findViewById(R.id.editText1);
     }
 
     public void openActivity2() {
         Intent i = new Intent(this, Graph.class);
+//        i.putExtra("RADAR", radar_inputs);
+//        i.putExtra("Elevation", ed1.getText().toString());
+//        i.putExtra("Azimuth", ed2.getText().toString());
         startActivity(i);
     }
 

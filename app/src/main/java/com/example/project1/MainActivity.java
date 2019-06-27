@@ -11,23 +11,39 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
+    private ArrayList<String> arrayList;
+    private ArrayAdapter<String> adapter;
+
     Databasehelper mydb;
-    EditText ed1, ed2, ed3, ed4, ed5, ed6, ed7, ed8, ed9, ed10, ed11, ed12;
+    EditText ed1, ed2, ed3, ed4, ed5, ed6, ed7, ed8, ed9, ed10, ed11, ed12, ed14;
     Button btnadd;
     Button btnview;
     Button btnnxt;
     Button btncancel;
+    Button btaddprf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+//        ListView listView = (ListView)findViewById(R.id.prf);
+//        ed14 = (EditText)findViewById(R.id.editText14);
+//        btaddprf = (Button)findViewById(R.id.addprfbutton);
+
+//        arrayList = new ArrayList<String>();
+//        adapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, arrayList);
+//        listView.setAdapter(adapter);
+
         mydb = new Databasehelper(this);
+        getSupportActionBar().setTitle("Define Radar Parameters");
         ed1 = (EditText) findViewById(R.id.editText1);
         ed2 = (EditText) findViewById(R.id.editText2);
         ed3 = (EditText) findViewById(R.id.editText3);
@@ -54,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         AddData();
+        //onBtnClick();
 
     }
 
@@ -78,6 +95,18 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
     }
+
+//    public void onBtnClick()
+//    {
+//        btaddprf.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String result = ed14.getText().toString();
+//                arrayList.add(result);
+//                adapter.notifyDataSetChanged();
+//            }
+//        });
+//    }
 
     public void ViewData( View view) {
         startActivity(new Intent(this, DisplayRadar.class));
@@ -115,6 +144,11 @@ public class MainActivity extends AppCompatActivity {
 //                    }
 //                }
 //        );
+    }
+
+    public void openpopup(View view) {
+        Intent i = new Intent(this, popup.class);
+        startActivity(i);
     }
 
 //    public void showMessage(String Title, String Message) {

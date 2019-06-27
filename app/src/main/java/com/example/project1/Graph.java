@@ -1,32 +1,104 @@
 package com.example.project1;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.net.Uri;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.PointsGraphSeries;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
 public class Graph extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
+    private int STORAGE_PERMISSION_CODE = 1;
+    Radar_Inputs radar_inputs;
+    Databasehelper databasehelper;
+    File imagePath;
 
+    private Activity mActivity;
     PointsGraphSeries<DataPoint> xyvalues;
+    Button save;
     GraphView mscatterplot;
+
+    String azimuth,elevation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graph);
 
+        databasehelper = new Databasehelper(this);
+        //radar_inputs = (Radar_Inputs) getIntent().getExtras().getSerializable("RADAR");
+
+//        Intent i = getIntent();
+//        elevation = i.getStringExtra("Elevation");
+//        azimuth = i.getStringExtra("Azimuth");
+//        int el = Integer.valueOf(elevation);
+//        int az = Integer.valueOf(azimuth);
+
+
+        save = (Button)findViewById(R.id.savepdf);
+//        share.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Bitmap bitmap = takeScreenshot();
+//                saveBitmap(bitmap);
+//                shareIt();
+//            }
+//        });
         mscatterplot = (GraphView)findViewById(R.id.scatterplot);
         xyvalues = new PointsGraphSeries<>();
         createscatterplot();
+//        onBtnClick();
+    }
+
+    public Bitmap takeScreenshot() {
+        View rootView = findViewById(android.R.id.content).getRootView();
+        rootView.setDrawingCacheEnabled(true);
+        return rootView.getDrawingCache();
+    }
+
+    public void saveBitmap(Bitmap bitmap) {
+        imagePath = new File(Environment.getExternalStorageDirectory() + "/screenshot");
+        FileOutputStream fos;
+        try {
+            fos = new FileOutputStream(imagePath);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+            fos.flush();
+            fos.close();
+        } catch (FileNotFoundException e) {
+            Log.e("GREC", e.getMessage(), e);
+        } catch (IOException e) {
+            Log.e("GREC", e.getMessage(), e);
+        }
+    }
+
+    private void shareIt() {
+        Uri uri = Uri.fromFile(imagePath);
+        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+        sharingIntent.setType("image/*");
+        String shareBody = "In Tweecher, My highest score with screen shot";
+        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "My Tweecher score");
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+        sharingIntent.putExtra(Intent.EXTRA_STREAM, uri);
+
+        startActivity(Intent.createChooser(sharingIntent, "Share via"));
     }
 
     public void createscatterplot()
@@ -55,9 +127,11 @@ public class Graph extends AppCompatActivity {
         }
 
         //set some properties
-        xyvalues.setShape(PointsGraphSeries.Shape.RECTANGLE);
-        xyvalues.setColor(Color.BLUE);
-        xyvalues.setSize(20f);
+        xyvalues.setShape(PointsGraphSeries.Shape.TRIANGLE);
+        xyvalues.setColor(Color.RED);
+        xyvalues.setSize(13f);
+        xyvalues.setTitle("Blindzone Diagram");
+        mscatterplot.setBackgroundColor(Color.argb(50, 50, 0, 200));;
 
         //set Scrollable and Scaleable
         mscatterplot.getViewport().setScalable(true);
@@ -133,4 +207,22 @@ public class Graph extends AppCompatActivity {
         }
         return array;
     }
+
+    public void onBtnClick(View view) {mscatterplot.takeSnapshotAndShare(Graph.this, "exampleGraph", "GraphViewSnapshot");
+
+// get the bitmap
+        Bitmap bitmap = mscatterplot.takeSnapshot();
+    }
+
+
+//    private boolean check(double range, double velocity)
+//    {
+//        boolean visible=false;
+//        int count=0;
+//        for(int i=0; i<airborneradar.PRF.size(); i++)
+//        {
+//            double prf = airborneradar.PRF.element[i];
+//
+//        }
+//    }
 }

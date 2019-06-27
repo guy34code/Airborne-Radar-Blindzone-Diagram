@@ -8,7 +8,7 @@ import android.view.WindowManager;
 
 public class SplashScreen extends AppCompatActivity {
 
-    private int SLEEP_TIMER = 1;
+    private int SLEEP_TIMER = 5;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

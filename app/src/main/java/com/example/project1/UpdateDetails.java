@@ -19,6 +19,8 @@ public class UpdateDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_details);
 
+        getSupportActionBar().setTitle("Edit Radar Parameters");
+
         dbhelper = new Databasehelper(this);
         ed1 =  findViewById(R.id.t0);
         ed2 =  findViewById(R.id.t6);

@@ -11,11 +11,12 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_margin="20dp"
-        android:padding="16dp"
-        android:text="Dynamic Parameters"
+        android:padding="16dp"/>
+        <!--android:text="Dynamic Parameters"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#4689C8"
-        android:textStyle="bold" />
+        android:textStyle="bold"-->
+
 
     <RelativeLayout
         android:id="@+id/layout1"
@@ -35,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:layout_alignParentLeft="true"
-            android:text="Choose Antenna Type"
+            android:text="Choose Radar Type"
             android:gravity="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="#FF5722" />
