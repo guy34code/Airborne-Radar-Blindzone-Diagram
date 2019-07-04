@@ -6,13 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".Graph">
 
-
     <com.jjoe64.graphview.GraphView
         android:layout_width="wrap_content"
-        android:layout_height="350dp"
+        android:layout_height="450dp"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:id="@+id/scatterplot"/>
 
     <Button
@@ -23,5 +22,5 @@
         android:onClick="onBtnClick"
         android:layout_below="@+id/scatterplot"
         android:layout_centerHorizontal="true"
-        android:text="Save As PDF"/>
+        android:text="Save As ScreenShot"/>
 </RelativeLayout>

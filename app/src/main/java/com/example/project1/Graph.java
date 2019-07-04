@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.GridLabelRenderer;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.PointsGraphSeries;
 
@@ -106,8 +107,8 @@ public class Graph extends AppCompatActivity {
         ArrayList<XYValues> xypoints=new ArrayList<>();
 
 
-        double start = -100;
-        double end = 100;
+        double start = 0;
+        double end = 150;
         for(int i = 0; i<40; i++){
             double randomX = new Random().nextDouble();
             double randomY = new Random().nextDouble();
@@ -127,11 +128,11 @@ public class Graph extends AppCompatActivity {
         }
 
         //set some properties
-        xyvalues.setShape(PointsGraphSeries.Shape.TRIANGLE);
+        xyvalues.setShape(PointsGraphSeries.Shape.POINT);
         xyvalues.setColor(Color.RED);
-        xyvalues.setSize(13f);
+        xyvalues.setSize(5f);
         xyvalues.setTitle("Blindzone Diagram");
-        mscatterplot.setBackgroundColor(Color.argb(50, 50, 0, 200));;
+        mscatterplot.setBackgroundColor(Color.argb(50, 50, 0, 200));
 
         //set Scrollable and Scaleable
         mscatterplot.getViewport().setScalable(true);
@@ -142,14 +143,21 @@ public class Graph extends AppCompatActivity {
         //set manual x bounds
         mscatterplot.getViewport().setYAxisBoundsManual(true);
         mscatterplot.getViewport().setMaxY(150);
-        mscatterplot.getViewport().setMinY(-150);
+        mscatterplot.getViewport().setMinY(0);
 
         //set manual y bounds
         mscatterplot.getViewport().setXAxisBoundsManual(true);
         mscatterplot.getViewport().setMaxX(150);
-        mscatterplot.getViewport().setMinX(-150);
-
+        mscatterplot.getViewport().setMinX(0);
         mscatterplot.addSeries(xyvalues);
+
+        GridLabelRenderer gridLabel = mscatterplot.getGridLabelRenderer();
+        gridLabel.setHorizontalAxisTitle("Velocity----->");
+
+        GridLabelRenderer gridLabel1 = mscatterplot.getGridLabelRenderer();
+        gridLabel1.setVerticalAxisTitle("Range---->");
+
+        mscatterplot.setTitle("BlindZone Diagram");
     }
 
     /**
