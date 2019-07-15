@@ -30,6 +30,7 @@ public class popup extends AppCompatActivity {
             public void onClick(View v) {
                 String getInput = txt.getText().toString();
                 addArray.add(getInput);
+                txt.setText("");
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>(popup.this,android.R.layout.simple_list_item_1, addArray);
                 show.setAdapter(adapter);
 
